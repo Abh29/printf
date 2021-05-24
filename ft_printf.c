@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-size_t     ft_args_expected_count(const char *format)
+size_t     ft_args_expected_count(const char *format) //TODO: add more checks for the format (change this)
 {
     size_t count;
 

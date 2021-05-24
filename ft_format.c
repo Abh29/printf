@@ -11,7 +11,7 @@ int  ft_contians_char(char *s, char c)
 
 void ft_put_var(char flag, va_list args, size_t size, char filler)
 {
-    if (flag == 'd' || flag == 'i') // for numbers 
+    if (flag == 'd' || flag == 'i') // for numbers TODO: handle options 
         ft_putnbr_fd((int)va_arg(args, int), StdOut);
     else if (flag == 's')  // for Strings 
         ft_putstr_fd((char *)va_arg(args, char *), StdOut);
@@ -19,7 +19,15 @@ void ft_put_var(char flag, va_list args, size_t size, char filler)
         ft_putchar_fd((int)va_arg(args, int), StdOut);
     else if (flag == 'p')
         ft_putptr_fd((void *)va_arg(args, void *), StdOut);
-        
+    else if (flag == 'x')
+        ft_putnbr_base_fd((int)va_arg(args, int), Hex, StdOut);
+    else if (flag == 'X')
+        ft_putnbr_base_fd((int)va_arg(args, int), HEX, StdOut);
+    else if (flag == 'o')
+        ft_putnbr_base_fd((int)va_arg(args, int), Oct, StdOut);
+    else if (flag == 'u')
+        ft_putnbr_unsigned_fd((int)va_arg(args, int), StdOut);
+
 }
 
 

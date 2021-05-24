@@ -1,0 +1,6 @@
+a.out
+test.c
+*.o
+*/*.o
+*.a
+*.so

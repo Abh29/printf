@@ -12,6 +12,11 @@
 #define Supported_Flags "cspdiuxX"
 #define Supported_Options "-0.*"
 
+#define HEX "0123456789ABCDEF"
+#define Hex "0123456789abcdef"
+#define Oct "01234567"
+#define Bin "01"
+
 #define FT_NARG(...) \
          FT_NARG_(__VA_ARGS__,FT_GET_NTH())
 #define FT_NARG_(...) \
