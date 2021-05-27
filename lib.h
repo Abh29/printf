@@ -4,12 +4,14 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include "./libft/libft.h"
+#include <stdio.h>   //TODO: remove this
+#include <string.h>     //TODO: remove this 
 
 #define StdIn   0
 #define StdOut  1
 #define StdErr  2
 
-#define Supported_Flags "cspdiuxX"
+#define Supported_Flags "cspdiuxXo%"
 #define Supported_Options "-0.*"
 
 #define HEX "0123456789ABCDEF"
@@ -55,6 +57,6 @@
 
 int     _ft_fprintf(int fd, const char *format, size_t argc, ...);
 char    *ft_format(char const *format, va_list args, int args_num);
-
+size_t  ft_args_expected_count(const char *format);
 
 #endif

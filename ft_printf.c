@@ -2,18 +2,8 @@
 #include <stdio.h>
 #include <string.h>
 
-size_t     ft_args_expected_count(const char *format) //TODO: add more checks for the format (change this)
-{
-    size_t count;
 
-    count = 0;
-    while (*format)
-        if (*format++ == '%')
-            count++;
-    return (count);
-}
-
-int ft_incorrect_argc_msg(size_t expected, size_t found)
+static int ft_incorrect_argc_msg(size_t expected, size_t found)
 {
     ft_putstr_fd("the number of arguments is not correct !!!  expected ",StdErr);
     ft_putnbr_fd(expected, StdErr);
@@ -23,6 +13,11 @@ int ft_incorrect_argc_msg(size_t expected, size_t found)
     return (-1);
 }
 
+static int ft_incorrect_flags_msg()
+{
+    ft_putstr_fd("incorrect flag", StdErr);
+    return (-1);
+}
 
 int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
 {
@@ -31,6 +26,8 @@ int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
     va_list args;
 
     args_num = ft_args_expected_count(format);
+    if (args_num == -1)
+        return (ft_incorrect_flags_msg());
     if (args_num != argc)
         return (ft_incorrect_argc_msg(args_num, argc));
     va_start(args, argc);
@@ -43,5 +40,7 @@ int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
 int main()
 {
     char *s = "hello world";
-    ft_printf("this is a test %d %c %s %p", *s, *s, s, s);
+    ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%|", *s, -120, *s, s, s , -1325, 125, -15, -1, 1, 1);
+    int a = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%|\n", *s, -120, *s, s, s , -1325, 125, -15, -1);
+    ft_putnbr_fd(a, StdOut);
 }

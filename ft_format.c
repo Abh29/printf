@@ -1,6 +1,5 @@
 #include "lib.h"
-#include <stdio.h>
-#include <string.h>
+
 
 int  ft_contians_char(char *s, char c)
 {
@@ -27,7 +26,8 @@ void ft_put_var(char flag, va_list args, size_t size, char filler)
         ft_putnbr_base_fd((int)va_arg(args, int), Oct, StdOut);
     else if (flag == 'u')
         ft_putnbr_unsigned_fd((int)va_arg(args, int), StdOut);
-
+    else if (flag == '%')
+        ft_putchar_fd('%', StdOut);  
 }
 
 
