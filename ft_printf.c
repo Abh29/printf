@@ -22,25 +22,31 @@ static int ft_incorrect_flags_msg()
 int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
 {
     int args_num;
-    char *out;
+    size_t out;
     va_list args;
 
+    out = 0;
     args_num = ft_args_expected_count(format);
     if (args_num == -1)
         return (ft_incorrect_flags_msg());
-    if (args_num != argc)
+   if (args_num != argc)
         return (ft_incorrect_argc_msg(args_num, argc));
     va_start(args, argc);
-    out = ft_format(format, args, args_num);
-    ft_putstr_fd(out, fd);
+    ft_format(format, args, args_num, &out);
     va_end(args);
-    return (0);
+    return ((int)out);
 }
 
 int main()
 {
     char *s = "hello world";
-    ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%|", *s, -120, *s, s, s , -1325, 125, -15, -1, 1, 1);
-    int a = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%|\n", *s, -120, *s, s, s , -1325, 125, -15, -1);
-    ft_putnbr_fd(a, StdOut);
+   // int a = ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1, 1, 1);
+   // int b = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1);
+   // int c = printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1);
+
+    int a = ft_printf("%d \n", +10 - 2);
+    int b = printf("%d \n", +10 - 2);
+    int c = ft_printf("hello world \n");
+    int d = printf("hello world \n");
+    printf("%d %d %d %d \n",a, b, c ,d);
 }

@@ -4,3 +4,5 @@ test.c
 */*.o
 *.a
 *.so
+prt
+tst

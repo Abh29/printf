@@ -7,6 +7,6 @@ test:
 
 print:
 	@gcc ft_printf.c ft_format.c ft_check.c libft/libft.a -o prt 
-	@./prt
+	@./prt | cat -e
 
 .PHONY: test print
