@@ -11,7 +11,7 @@
 #define StdOut  1
 #define StdErr  2
 
-#define Supported_Flags "cspdiuxXo%"
+#define Supported_Flags "cspdiuxXon%"
 #define Supported_Options "-0.*"
 
 #define HEX "0123456789ABCDEF"

@@ -28,6 +28,10 @@ void ft_put_var_simple(char flag, va_list args, size_t *fsize)
         ft_putnbr_unsigned_fd_size((int)va_arg(args, int), StdOut, fsize);
     else if (flag == '%')
         ft_putchar_fd_size('%', StdOut, fsize);
+    else if (flag == 'n')
+        *((int *)va_arg(args, int *)) = *fsize;
+    else if (flag == 'f')
+        ft_putdbl_fd_size((double)va_arg(args, double), StdOut, 6, fsize);
 }
 
 

@@ -40,13 +40,12 @@ int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
 int main()
 {
     char *s = "hello world";
-   // int a = ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1, 1, 1);
-   // int b = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1);
+    int a,b,c,d;
+
+    int aa = ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension \n", *s, -120, *s, s, s, &a , -1325, 125, -15, -1, &c, 1, 1);
+    int bb = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension \n", *s, -120, *s, s, s, &b , -1325, 125, -15, -1, &d);
    // int c = printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1);
 
-    int a = ft_printf("%d \n", +10 - 2);
-    int b = printf("%d \n", +10 - 2);
-    int c = ft_printf("hello world \n");
-    int d = printf("hello world \n");
-    printf("%d %d %d %d \n",a, b, c ,d);
+
+    printf("%d %d %d %d %d %d\n",a, b, c ,d, aa, bb);
 }
