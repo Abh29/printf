@@ -56,8 +56,8 @@
 #define ft_fprintf(fd, format, ...) _ft_fprintf(fd, format, FT_NARG(__VA_ARGS__), ##__VA_ARGS__);
 #define ft_printf(format, ...) ft_fprintf(StdOut, format, ##__VA_ARGS__);
 
-#define SIMPLE_DEC OPTIONS(0, 0, 0, 0, 0, 0)
-#define SIMPLE_STR OPTIONS(0, INT_MAX, 0, 0, 0, 0)
+#define SIMPLE_DEC OPTIONS(0, 1, 0, 0, 0, NULL)
+#define SIMPLE_STR OPTIONS(0, INT_MAX, 0, 0, 0, NULL)
 
 int     _ft_fprintf(int fd, const char *format, size_t argc, ...);
 char    *ft_format(char const *format, va_list args, int args_num, size_t *fsize);

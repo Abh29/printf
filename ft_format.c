@@ -28,13 +28,13 @@ void ft_put_var_simple(char flag, va_list args, size_t *fsize)
     else if (flag == 'p')
         ft_putptr_fd_size((void *)va_arg(args, void *), StdOut, fsize, SIMPLE_DEC);
     else if (flag == 'x')
-        ft_putnbr_base_fd_size((int)va_arg(args, int), Hex, StdOut, fsize);
+        ft_putnbr_base_fd_size((int)va_arg(args, int), Hex, StdOut, fsize, SIMPLE_DEC);
     else if (flag == 'X')
-        ft_putnbr_base_fd_size((int)va_arg(args, int), HEX, StdOut, fsize);
+        ft_putnbr_base_fd_size((int)va_arg(args, int), HEX, StdOut, fsize, SIMPLE_DEC);
     else if (flag == 'o')
-        ft_putnbr_base_fd_size((int)va_arg(args, int), Oct, StdOut, fsize);
+        ft_putnbr_base_fd_size((int)va_arg(args, int), Oct, StdOut, fsize, SIMPLE_DEC);
     else if (flag == 'u')
-        ft_putnbr_unsigned_fd_size((int)va_arg(args, int), StdOut, fsize);
+        ft_putnbr_unsigned_fd_size((int)va_arg(args, int), StdOut, fsize, SIMPLE_DEC);
     else if (flag == '%')
         ft_putchar_fd_size('%', StdOut, fsize);
     else 
