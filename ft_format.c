@@ -13,7 +13,9 @@ void ft_put_var_simple_bonus(char flag, va_list args, size_t *fsize)
     if (flag == 'n')
         *((int *)va_arg(args, int *)) = *fsize;
     else if (flag == 'f')
-        ft_putdbl_fd_size((double)va_arg(args, double), StdOut, 6, fsize);
+        ft_putdbl_fd_size((long double)va_arg(args, double), StdOut, fsize, SIMPLE_DBL);
+    else if (flag == 'e')
+        ft_putdbl_exp_fd_size((double)va_arg(args, double), StdOut, fsize, SIMPLE_DBL);
     
 }
 

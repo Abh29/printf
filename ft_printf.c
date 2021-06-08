@@ -48,4 +48,15 @@ int main()
 
 
     printf("%d %d %d %d %d %d\n",a, b, c ,d, aa, bb);
+
+  /*  t_double d;
+    d.dbl = 2;
+
+
+     for (size_t i = 0; i < sizeof(d.dbl); i++)
+    {
+    ft_printf("%c%c%c%c%c%c%c%c ",(char)(d.data[i] & 0x01) + '0',(char)((d.data[i] & 0x02) >> 1) + '0',(char)((d.data[i] & 0x04) >> 2) + '0',(char)((d.data[i] & 0x08) >> 3) + '0',
+    (char)((d.data[i] & 0x10) >> 4) + '0',(char)((d.data[i] & 0x20) >> 5) + '0',(char)((d.data[i] & 0x40) >> 6) + '0',(char)((d.data[i] & 0x80) >> 7) + '0');
+    }
+    ft_printf("\n");*/
 }
