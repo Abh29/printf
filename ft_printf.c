@@ -42,8 +42,8 @@ int main()
     char *s = "hello world";
     int a,b,c,d;
 
-    int aa = ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension \n", *s, -120, *s, s, s, &a , -1325, 125, -15, -1, &c, 1, 1);
-    int bb = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension \n", *s, -120, *s, s, s, &b , -1325, 125, -15, -1, &d);
+    int aa = ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension f => |%f| e => |%e| \n", *s, -120, *s, s, s, &a , -1325, 125, -15, -1, &c, -123.32, -0.33652);
+    int bb = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension f => |%f| e => |%e| \n", *s, -120, *s, s, s, &b , -1325, 125, -15, -1, &d, -123.32, -0.33652);
    // int c = printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1);
 
 

@@ -58,7 +58,7 @@
 
 #define SIMPLE_DEC OPTIONS(0, 1, 0, 0, 0, NULL)
 #define SIMPLE_STR OPTIONS(0, INT_MAX, 0, 0, 0, NULL)
-#define SIMPLE_DBL OPTIONS(0, 6, 1, 0, 0, NULL)
+#define SIMPLE_DBL OPTIONS(1, 6, 1, 0, 0, NULL)
 
 int     _ft_fprintf(int fd, const char *format, size_t argc, ...);
 char    *ft_format(char const *format, va_list args, int args_num, size_t *fsize);

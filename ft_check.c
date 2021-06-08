@@ -7,6 +7,7 @@ size_t     ft_args_expected_count(const char *format) //TODO: add more checks fo
     count = 0;
     while (*format)
         if (*format++ == '%')
-            count++;
+            if (*format++ != '%')
+                count++;
     return (count);
 }
