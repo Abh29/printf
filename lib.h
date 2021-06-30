@@ -12,7 +12,7 @@
 #define StdErr  2
 
 #define Supported_Flags "cspdiuxXonfge%"
-#define Supported_Options "+-.*#0123456789"
+#define Supported_Options " +-.*#0123456789"
 
 #define HEX "0123456789ABCDEF"
 #define Hex "0123456789abcdef"
@@ -53,15 +53,16 @@
          19,18,17,16,15,14,13,12,11,10, \
          9,8,7,6,5,4,3,2,1,0
          
-#define ft_fprintf(fd, format, ...) _ft_fprintf(fd, format, FT_NARG(__VA_ARGS__), ##__VA_ARGS__);
-#define ft_printf(format, ...) ft_fprintf(StdOut, format, ##__VA_ARGS__);
+#define ft_fprintf(fd, format, ...) _ft_fprintf(fd, format, FT_NARG(__VA_ARGS__), ##__VA_ARGS__)
+#define ft_printf(format, ...) ft_fprintf(StdOut, format, ##__VA_ARGS__)
 
 #define SIMPLE_DEC OPTIONS(0, 1, 0, 0, 0, NULL)
 #define SIMPLE_STR OPTIONS(0, INT_MAX, 0, 0, 0, NULL)
 #define SIMPLE_DBL OPTIONS(1, 6, 1, 0, 0, NULL)
 
-int     _ft_fprintf(int fd, const char *format, size_t argc, ...);
-char    *ft_format(char const *format, va_list args, int args_num, size_t *fsize);
-size_t  ft_args_expected_count(const char *format);
+int         _ft_fprintf(int fd, const char *format, size_t argc, ...);
+char        *ft_format(char const *format, va_list args, int args_num, size_t *fsize);
+size_t      ft_args_expected_count(const char *format);
+t_options   ft_extract_options(const char **format, va_list args, char *flag);
 
 #endif

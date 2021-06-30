@@ -5,4 +5,8 @@ test.c
 *.a
 *.so
 prt
+tstpft/
+42TESTERS-PRINTF
+pft/
+printfTester
 tst

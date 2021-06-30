@@ -5,17 +5,17 @@
 
 static int ft_incorrect_argc_msg(size_t expected, size_t found)
 {
-    ft_putstr_fd("the number of arguments is not correct !!!  expected ",StdErr);
+   /* ft_putstr_fd("the number of arguments is not correct !!!  expected ",StdErr);
     ft_putnbr_fd(expected, StdErr);
     ft_putstr_fd(" but found ", StdErr);
     ft_putnbr_fd(found, StdErr);
-    ft_putstr_fd("\n",StdErr);
+    ft_putstr_fd("\n",StdErr); */
     return (-1);
 }
 
 static int ft_incorrect_flags_msg()
 {
-    ft_putstr_fd("incorrect flag", StdErr);
+   /* ft_putstr_fd("incorrect flag", StdErr);*/
     return (-1);
 }
 
@@ -35,28 +35,4 @@ int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
     ft_format(format, args, args_num, &out);
     va_end(args);
     return ((int)out);
-}
-
-int main()
-{
-    char *s = "hello world";
-    int a,b,c,d;
-
-    int aa = ft_printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension f => |%f| e => |%e| \n", *s, -120, *s, s, s, &a , -1325, 125, -15, -1, &c, -123.32, -0.33652);
-    int bb = printf("this is printf   :   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| n ==> |%n| x => |%x| X => |%X| o => |%o| u => |%u| n ==> |%n| |%%| this is an extension f => |%f| e => |%e| \n", *s, -120, *s, s, s, &b , -1325, 125, -15, -1, &d, -123.32, -0.33652);
-   // int c = printf("this is ft_printf:   d => |% d| i => |%i| c => |%c| s => |%s| p => |%p| x => |%x| X => |%X| o => |%o| u => |%u| |%%| this is an extension \n", *s, -120, *s, s, s , -1325, 125, -15, -1);
-
-
-    printf("%d %d %d %d %d %d\n",a, b, c ,d, aa, bb);
-
-  /*  t_double d;
-    d.dbl = 2;
-
-
-     for (size_t i = 0; i < sizeof(d.dbl); i++)
-    {
-    ft_printf("%c%c%c%c%c%c%c%c ",(char)(d.data[i] & 0x01) + '0',(char)((d.data[i] & 0x02) >> 1) + '0',(char)((d.data[i] & 0x04) >> 2) + '0',(char)((d.data[i] & 0x08) >> 3) + '0',
-    (char)((d.data[i] & 0x10) >> 4) + '0',(char)((d.data[i] & 0x20) >> 5) + '0',(char)((d.data[i] & 0x40) >> 6) + '0',(char)((d.data[i] & 0x80) >> 7) + '0');
-    }
-    ft_printf("\n");*/
 }
