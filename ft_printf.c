@@ -2,37 +2,55 @@
 #include <stdio.h>
 #include <string.h>
 
-
-static int ft_incorrect_argc_msg(size_t expected, size_t found)
+static int	ft_incorrect_argc_msg(size_t expected, size_t found)
 {
-   /* ft_putstr_fd("the number of arguments is not correct !!!  expected ",StdErr);
-    ft_putnbr_fd(expected, StdErr);
-    ft_putstr_fd(" but found ", StdErr);
-    ft_putnbr_fd(found, StdErr);
-    ft_putstr_fd("\n",StdErr); */
-    return (-1);
+	return (-1);
 }
 
-static int ft_incorrect_flags_msg()
+static int	ft_incorrect_flags_msg(void)
 {
-   /* ft_putstr_fd("incorrect flag", StdErr);*/
-    return (-1);
+	return (-1);
 }
 
-int     _ft_fprintf(int fd, const char *format, size_t argc, ...)
+char	*ft_format(char const *format, va_list args, int args_num, \
+		size_t *fsize)
 {
-    int args_num;
-    size_t out;
-    va_list args;
+	char	*out;
+	int		k;
 
-    out = 0;
-    args_num = ft_args_expected_count(format);
-    if (args_num == -1)
-        return (ft_incorrect_flags_msg());
-   if (args_num != argc)
-        return (ft_incorrect_argc_msg(args_num, argc));
-    va_start(args, argc);
-    ft_format(format, args, args_num, &out);
-    va_end(args);
-    return ((int)out);
+	while (*format)
+	{
+		if (*format == '%')
+			ft_format_flag(&format, args, &args_num, fsize);
+		else
+			ft_putchar_fd_size(*format, StdOut, fsize);
+		format++;
+	}
+	return ("\n");
+}
+
+int	_ft_fprintf(int fd, const char *format, size_t argc, ...)
+{
+	int		args_num;
+	size_t	out;
+	va_list	args;
+
+	out = 0;
+	args_num = ft_args_expected_count(format);
+	if (args_num == -1)
+		return (ft_incorrect_flags_msg());
+	if (args_num != argc)
+		return (ft_incorrect_argc_msg(args_num, argc));
+	va_start(args, argc);
+	ft_format(format, args, args_num, &out);
+	va_end(args);
+	return ((int)out);
+}
+
+//TODO: DELETE THIS 
+void	print_option(t_options ops)
+{
+	printf("sign : %d , precision : %ld , width : %ld ,\
+	  filler : %c , l_shift : %d ,  prefix : %s", ops.sign, ops.precision, \
+	   ops.width, ops.filler, ops.l_shift, ops.prefix);
 }

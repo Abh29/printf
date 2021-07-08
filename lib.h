@@ -7,9 +7,9 @@
 #include <stdio.h>   //TODO: remove this
 #include <string.h>     //TODO: remove this 
 
-#define StdIn   0
-#define StdOut  1
-#define StdErr  2
+# define StdIn	0
+# define StdOut	1
+# define StdErr	2
 
 #define Supported_Flags "cspdiuxXonfge%"
 #define Supported_Options " +-.*#0123456789"
@@ -19,9 +19,8 @@
 #define Oct "01234567"
 #define Bin "01"
 
-
 #define FT_NARG(...) \
-         FT_NARG_(0, ##__VA_ARGS__, FT_GET_NTH())
+			FT_NARG_(0, ##__VA_ARGS__, FT_GET_NTH())
 #define FT_NARG_(...) \
          FT_128TH_ARG(__VA_ARGS__)
 #define FT_128TH_ARG(_0,\
@@ -60,9 +59,15 @@
 #define SIMPLE_STR OPTIONS(0, INT_MAX, 0, 0, 0, NULL)
 #define SIMPLE_DBL OPTIONS(1, 6, 1, 0, 0, NULL)
 
+#define S_D SIMPLE_DEC
+#define S_S SIMPLE_STR
+#define S_DB SIMPLE_STR
+
 int         _ft_fprintf(int fd, const char *format, size_t argc, ...);
 char        *ft_format(char const *format, va_list args, int args_num, size_t *fsize);
 size_t      ft_args_expected_count(const char *format);
 t_options   ft_extract_options(const char **format, va_list args, char *flag);
+void		ft_format_flag(const char **format, va_list args, int *args_num, size_t *fsize);
+void		print_option(t_options ops);
 
 #endif
